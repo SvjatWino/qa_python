@@ -69,3 +69,10 @@ class TestBooksCollector:
         collector.add_new_book(book_name)
         collector.set_book_genre(book_name, genre)
         assert collector.get_book_genre(book_name) == genre
+
+    def test_get_books_genre_returns_correct_dict(self, collector):
+        collector.add_new_book('Дюна')
+        collector.set_book_genre('Дюна', 'Фантастика')
+
+        expected = {'Дюна': 'Фантастика'}
+        assert collector.get_books_genre() == expected
